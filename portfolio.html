@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pasupuleti Sai Manikanta | Product Management Portfolio</title>
+<meta name="description" content="Portfolio of Pasupuleti Sai Manikanta, IIT Guwahati. Product case studies, experience and results: AskIITG, Moj retention strategy, Delhivery ETA optimization and the Spirit festival app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #F4F6FA;
+    --surface: #FFFFFF;
+    --ink: #0D1B3E;
+    --muted: #47547A;
+    --line: #D3DAE9;
+    --accent: #2F3DF5;
+    --accent-soft: #A2AAFF;
+    --accent-ink: #FFFFFF;
+    --tint: #E6E9FF;
+    --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    --text: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1226;
+      --surface: #121A33;
+      --ink: #E9EDFB;
+      --muted: #A3AECB;
+      --line: #263153;
+      --accent: #8C9BFF;
+      --accent-soft: #4A56C4;
+      --accent-ink: #0B1226;
+      --tint: #1B2551;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B1226;
+    --surface: #121A33;
+    --ink: #E9EDFB;
+    --muted: #A3AECB;
+    --line: #263153;
+    --accent: #8C9BFF;
+    --accent-soft: #4A56C4;
+    --accent-ink: #0B1226;
+    --tint: #1B2551;
+  }
+
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 4.5rem); -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--text);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  [hidden] { display: none !important; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  img, svg { max-width: 100%; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.1rem, 4vw, 2.5rem); }
+  .skip { position: absolute; left: -999px; top: 0; background: var(--accent); color: var(--accent-ink); padding: .6rem 1rem; z-index: 20; }
+  .skip:focus { left: 1rem; top: 1rem; }
+
+  /* Header */
+  .site-head {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-head .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1.5rem; padding-top: .8rem; padding-bottom: .8rem; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 1.05rem; text-decoration: none; letter-spacing: -.01em; }
+  .site-nav { display: flex; gap: 1.4rem; }
+  .site-nav a { text-decoration: none; font-weight: 500; font-size: .98rem; color: var(--muted); padding: .2rem 0; border-bottom: 2px solid transparent; }
+  .site-nav a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+  /* Hero */
+  .hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4rem); }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.4rem, 7.6vw, 5.6rem);
+    font-variation-settings: "wdth" 86, "opsz" 96;
+    line-height: 1.02;
+    letter-spacing: -.035em;
+    margin: 0 0 1.8rem;
+  }
+  .hero h1 .line { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+  .hero h1 .line > span { display: block; transform: translateY(108%); animation: rise .85s cubic-bezier(.2, .7, .2, 1) forwards; }
+  .hero h1 .line:nth-child(2) > span { animation-delay: .14s; }
+  @keyframes rise { to { transform: none; } }
+  .lede { max-width: 40rem; font-size: 1.2rem; line-height: 1.6; margin: 0 0 2rem; color: var(--ink); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: .8rem; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 600; font-size: 1rem;
+    padding: .8rem 1.4rem; border-radius: 999px; border: 2px solid var(--accent);
+    transition: background-color .15s, color .15s;
+  }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { background: transparent; color: var(--accent); }
+  .btn.ghost { color: var(--accent); background: transparent; }
+  .btn.ghost:hover { background: var(--accent); color: var(--accent-ink); }
+
+  .proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2.5rem; margin-top: clamp(2.5rem, 6vw, 4.5rem); }
+  .proof p { margin: 0; padding-top: 1rem; border-top: 3px solid var(--ink); font-size: 1rem; color: var(--muted); max-width: 22rem; }
+  .proof strong { color: var(--ink); font-weight: 600; }
+
+  /* Sections */
+  .block { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+  .block h2 { font-family: var(--display); font-weight: 750; font-size: clamp(1.9rem, 4.2vw, 2.7rem); font-variation-settings: "wdth" 90; letter-spacing: -.025em; line-height: 1.1; margin: 0 0 .6rem; }
+  .block-intro { color: var(--muted); max-width: 38rem; margin: 0 0 2.2rem; }
+
+  /* Case studies */
+  .case { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 1.5rem 3.5rem; padding: 2.6rem 0; border-top: 1px solid var(--line); }
+  .case:last-of-type { border-bottom: 1px solid var(--line); }
+  .case h3 { font-family: var(--display); font-weight: 700; font-size: 1.7rem; font-variation-settings: "wdth" 92; letter-spacing: -.02em; line-height: 1.15; margin: 0 0 .4rem; }
+  .case-sub { margin: 0 0 .8rem; color: var(--muted); }
+  .case-meta { margin: 0 0 1rem; font-size: .95rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .case-link { font-weight: 600; color: var(--accent); text-underline-offset: 4px; }
+  .case-link:hover { text-decoration-thickness: 2px; }
+  .facts { margin: 0; }
+  .facts .facet { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .3rem 1.5rem; margin: 0 0 1.5rem; }
+  .facts .facet:last-child { margin-bottom: 0; }
+  .facts dt { font-weight: 600; color: var(--muted); font-size: .98rem; padding-top: .1rem; }
+  .facts dd { margin: 0; }
+  .facts dd p { margin: 0; max-width: 40rem; }
+  .facts ul.plain { margin: 0; padding-left: 1.1rem; max-width: 40rem; }
+  .facts ul.plain li { margin: 0 0 .5rem; padding-left: .2rem; }
+  .facts ul.plain li::marker { color: var(--accent); }
+  ul.results { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 0; }
+  ul.results li { background: var(--tint); border-radius: 6px; padding: .35rem .75rem; font-size: .95rem; font-weight: 500; }
+
+  .bars { margin: 1.1rem 0 0; max-width: 26rem; }
+  .bar-row { display: grid; grid-template-columns: 3.6rem minmax(0, 1fr) 5.2rem; align-items: center; gap: .7rem; margin-bottom: .55rem; font-size: .95rem; }
+  .bar-name { color: var(--muted); }
+  .bar-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .track { height: 14px; background: var(--tint); border-radius: 3px; overflow: hidden; }
+  .fill { height: 100%; border-radius: 3px; }
+  .fill.now { width: 20%; background: var(--ink); }
+  .fill.goal { width: 88%; background: linear-gradient(90deg, var(--accent) 0 81.82%, var(--accent-soft) 81.82% 100%); }
+  .bars figcaption { font-size: .85rem; color: var(--muted); }
+
+  /* Experience */
+  .group-title { font-family: var(--display); font-weight: 700; font-size: 1.25rem; margin: 2.6rem 0 0; font-variation-settings: "wdth" 92; }
+  .group-title:first-of-type { margin-top: 1.4rem; }
+  .role { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: .4rem 2.5rem; padding: 1.7rem 0; border-top: 1px solid var(--line); }
+  .role-date { color: var(--muted); font-size: .98rem; font-variant-numeric: tabular-nums; }
+  .role h4 { margin: 0; font-size: 1.15rem; font-weight: 600; line-height: 1.35; }
+  .role-org { margin: .1rem 0 .8rem; color: var(--muted); }
+  .role ul { margin: 0; padding-left: 1.1rem; max-width: 42rem; }
+  .role li { margin: 0 0 .45rem; padding-left: .2rem; }
+  .role li::marker { color: var(--accent); }
+
+  /* Skills and awards */
+  .skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 2.5rem; margin: 1.6rem 0 0; }
+  .skills h3 { font-size: 1.05rem; font-weight: 600; margin: 0 0 .7rem; }
+  .skills ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .skills li { border: 1.5px solid var(--line); border-radius: 6px; padding: .2rem .6rem; font-size: .95rem; background: var(--surface); }
+  .learning { margin: 2rem 0 0; max-width: 42rem; color: var(--muted); }
+  .learning strong { color: var(--ink); font-weight: 600; }
+  .awards-title { font-family: var(--display); font-weight: 700; font-size: 1.5rem; margin: 3.2rem 0 1rem; font-variation-settings: "wdth" 92; }
+  .awards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
+  .awards li { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: 0 .8rem; padding: .85rem 0; border-top: 1px solid var(--line); }
+  .awards .yr { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .awards b { font-weight: 600; }
+
+  .edu { margin: 3.2rem 0 0; }
+  .edu h3 { font-family: var(--display); font-weight: 700; font-size: 1.5rem; margin: 0 0 .6rem; font-variation-settings: "wdth" 92; }
+  .edu p { margin: 0 0 .3rem; color: var(--muted); }
+  .edu strong { color: var(--ink); font-weight: 600; }
+
+  /* Contact */
+  .contact { background: var(--ink); color: var(--bg); }
+  .contact h2 { color: var(--bg); }
+  .contact p { max-width: 36rem; margin: 0 0 1.6rem; opacity: .85; }
+  .mail { display: inline-block; font-family: var(--display); font-weight: 700; font-size: clamp(1.4rem, 4.6vw, 2.6rem); font-variation-settings: "wdth" 90; letter-spacing: -.02em; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; text-decoration-color: var(--accent-soft); overflow-wrap: anywhere; }
+  .mail:hover { text-decoration-color: currentColor; }
+  .contact .other { display: flex; flex-wrap: wrap; gap: .5rem 1.8rem; margin-top: 1.8rem; font-weight: 500; }
+  .contact .other a { text-underline-offset: 4px; }
+  .contact :focus-visible { outline-color: var(--bg); }
+
+  footer { padding: 1.6rem 0; font-size: .92rem; color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .case { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+    .role { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
+    .skills { grid-template-columns: minmax(0, 1fr); }
+    .awards { grid-template-columns: minmax(0, 1fr); }
+    .proof { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .facts .facet { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
+    .site-nav { gap: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero h1 .line > span { animation: none; transform: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">Pasupuleti Sai Manikanta</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1><span class="line"><span>I build products</span></span><span class="line"><span>students actually use.</span></span></h1>
+      <p class="lede">I'm a B.Tech student in Energy Engineering at IIT Guwahati, heading into product management. I find the problem in the data, talk to the people who have it, and ship something they can use. My latest build, AskIITG, now answers campus and career questions for 600+ students.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#work">See my work</a>
+        <a class="btn ghost" href="mailto:pasupuletisai29@gmail.com">Email me</a>
+      </div>
+
+      <div class="proof">
+        <p><strong>600+ students</strong> use AskIITG, with 85% satisfaction and 35% retention.</p>
+        <p><strong>33% lower error</strong> in delivery time estimates from a graph-based model of Delhivery's network.</p>
+        <p><strong>25K+ attendees</strong> were the audience for the festival app I helped build after surveying 800+ of them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <h2>Product work</h2>
+      <p class="block-intro">Four projects, each with the problem, what I did, and what changed.</p>
+
+      <article class="case" id="askiitg">
+        <div class="case-head">
+          <h3>AskIITG</h3>
+          <p class="case-sub">An AI connector for campus and career questions</p>
+          <p class="case-meta">Jun 2026 to Aug 2026</p>
+          <a class="case-link" href="https://bit.ly/AskIITG" target="_blank" rel="noopener">Try AskIITG</a>
+        </div>
+        <div class="case-body">
+          <dl class="facts">
+            <div class="facet">
+              <dt>Problem</dt>
+              <dd><p>Students looking for JEE counselling help, placement prep and campus information had to piece answers together from scattered web searches.</p></dd>
+            </div>
+            <div class="facet">
+              <dt>What I did</dt>
+              <dd>
+                <ul class="plain">
+                  <li>Built a Model Context Protocol (MCP) connector, backed by RAG, that brings IIT Guwahati's verified knowledge base straight into the AI apps students already use.</li>
+                  <li>Added a peer-mentorship feature that matches students with relevant seniors and alumni based on what they need.</li>
+                  <li>Owned the product metrics end to end and iterated on continuous student feedback.</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="facet">
+              <dt>Outcome</dt>
+              <dd>
+                <ul class="results">
+                  <li>600+ students</li>
+                  <li>80% less time searching for information</li>
+                  <li>85% user satisfaction</li>
+                  <li>35% retention</li>
+                  <li>50+ students matched with mentors</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case" id="moj">
+        <div class="case-head">
+          <h3>Moj micro-drama retention strategy</h3>
+          <p class="case-sub">Keeping viewers watching after a series ends</p>
+          <p class="case-meta">PMx 2026 by E-Cell Club, project deck, Jan 2026</p>
+        </div>
+        <div class="case-body">
+          <dl class="facts">
+            <div class="facet">
+              <dt>Problem</dt>
+              <dd><p>Viewers finish a micro-drama series and leave. I called this the post-series completion cliff and treated it as the key retention gap.</p></dd>
+            </div>
+            <div class="facet">
+              <dt>What I did</dt>
+              <dd>
+                <ul class="plain">
+                  <li>Mapped user journeys and proposed 6 product interventions.</li>
+                  <li>Designed a personalized retention loop built on rewards, recommendations and autoplay teasers.</li>
+                  <li>Ranked features with RICE and defined 8+ KPIs across retention, continuation, engagement, discovery and monetization.</li>
+                  <li>Proposed an A/B-led go-to-market plan with cohort rollout and feature flags.</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="facet">
+              <dt>Targets</dt>
+              <dd>
+                <ul class="results">
+                  <li>2.5x day-30 retention</li>
+                  <li>Series-to-series continuation from under 5% to 18–22%</li>
+                </ul>
+                <figure class="bars" role="img" aria-label="Series-to-series continuation: under 5 percent today, target of 18 to 22 percent">
+                  <div class="bar-row"><span class="bar-name">Today</span><div class="track"><div class="fill now"></div></div><span class="bar-val">Under 5%</span></div>
+                  <div class="bar-row"><span class="bar-name">Target</span><div class="track"><div class="fill goal"></div></div><span class="bar-val">18–22%</span></div>
+                  <figcaption>Series-to-series continuation, on a 0 to 25% scale. These are proposed targets, not measured results.</figcaption>
+                </figure>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case" id="eta">
+        <div class="case-head">
+          <h3>Graph-based delivery ETA optimization</h3>
+          <p class="case-sub">Finding the network bottlenecks that delay deliveries</p>
+          <p class="case-meta">Consulting &amp; Analytics Club, Apr 2026</p>
+          <a class="case-link" href="https://bit.ly/eta_opti" target="_blank" rel="noopener">View the analysis</a>
+        </div>
+        <div class="case-body">
+          <dl class="facts">
+            <div class="facet">
+              <dt>Problem</dt>
+              <dd><p>Delivery time estimates miss the delays that come from structural bottlenecks in a logistics network, so promised times slip and SLAs get breached.</p></dd>
+            </div>
+            <div class="facet">
+              <dt>What I did</dt>
+              <dd>
+                <ul class="plain">
+                  <li>Modeled Delhivery's network as a directed graph from 144K+ trip-segment records using NetworkX.</li>
+                  <li>Built a graph-enhanced ETA model and compared it with a baseline.</li>
+                  <li>Formulated a counterfactual rule for choosing between FTL and Carting on each leg.</li>
+                  <li>Analyzed SLA breaches, revised my centrality ranking after 2 of 3 priority hubs turned out to be misidentified, and flagged the top 3 hubs for upgrade.</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="facet">
+              <dt>Outcome</dt>
+              <dd>
+                <ul class="results">
+                  <li>33% lower error (MAE from 47.1 to 31.5 min)</li>
+                  <li>54.5% of estimates within ±15%, up from baseline</li>
+                  <li>FTL saves 120–230 min per leg beyond about 150 km</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case" id="spirit">
+        <div class="case-head">
+          <h3>Spirit festival app</h3>
+          <p class="case-sub">A mobile app for IIT Guwahati's annual sports festival</p>
+          <p class="case-meta">Apr 2025 to Nov 2025</p>
+        </div>
+        <div class="case-body">
+          <dl class="facts">
+            <div class="facet">
+              <dt>Problem</dt>
+              <dd><p>With 25K+ attendees, entry checks, accommodation and finding events created friction that hurt the experience.</p></dd>
+            </div>
+            <div class="facet">
+              <dt>What I did</dt>
+              <dd>
+                <ul class="plain">
+                  <li>Collected 800+ survey responses to pin down the top 5 friction points.</li>
+                  <li>Worked with 4 developers and 3 designers on an app with digital passes, notifications, scheduled alerts, navigation to 20+ campus venues, merchandise purchases, contacts and sponsored ad space.</li>
+                  <li>Reworked the security-check and accommodation-allotment flows to cut processing time.</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="facet">
+              <dt>Outcome</dt>
+              <dd>
+                <ul class="results">
+                  <li>Higher event satisfaction score</li>
+                  <li>Shorter processing time at security and accommodation</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+
+      <h3 class="group-title">Internships</h3>
+      <div class="role">
+        <div class="role-date">Jun 2026</div>
+        <div>
+          <h4>Forward Deployed Engineer Intern</h4>
+          <p class="role-org">Alumnx AI Labs, Hyderabad</p>
+          <ul>
+            <li>Built AskIITG, an MCP connector backed by RAG pipelines, now used by 600+ students.</li>
+            <li>Worked directly with organizations to find their business pain points and turn them into AI-powered workflows, including an agent that tracks customer emails for a logistics company.</li>
+            <li>Restructured content strategy and ran workshops, AI Forge challenges and multi-week programs that drew 5K+ participants, lifted cohort participation by 62%, added 2K+ followers in 30 days, and secured a partnership with Wispr Flow.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role">
+        <div class="role-date">May 2025 to Jul 2025</div>
+        <div>
+          <h4>Research Intern</h4>
+          <p class="role-org">DRDO, RCI Laboratory, Hyderabad</p>
+          <ul>
+            <li>Developed an AI-based aerial surveillance prototype for real-time target detection and tracking, reaching 78% mAP@0.5 on VisDrone.</li>
+            <li>Optimized the vision pipeline for edge deployment, cutting model size by about 40% with under 2% accuracy loss at 10–25 FPS.</li>
+            <li>Built an aircraft predictive-maintenance model, improving RUL R² from 0.72 to 0.82 with 0.86 F1 and 0.98 ROC-AUC.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="group-title">Leadership</h3>
+      <div class="role">
+        <div class="role-date">Dec 2025 to Feb 2026</div>
+        <div>
+          <h4>Venue Head, Public Relations &amp; Branding</h4>
+          <p class="role-org">Alcheringa, IIT Guwahati</p>
+          <ul>
+            <li>Led outreach through societies and clubs to grow participation across the parliamentary debate circuit.</li>
+            <li>Ran the event end to end, coordinating 20+ debate teams, judges and organizers.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role">
+        <div class="role-date">Apr 2025 to Nov 2025</div>
+        <div>
+          <h4>Head of Public Relations &amp; Branding</h4>
+          <p class="role-org">Spirit 2025, North East India's largest sports fest</p>
+          <ul>
+            <li>Directed a 50-member team in a 3-tier structure covering PR, branding and outreach across 80+ colleges.</li>
+            <li>Led 21+ sports and 5+ outreach events, drawing 25K+ footfall from across India.</li>
+            <li>Scaled the Campus Ambassador Program to 350+ ambassadors, driving a 30% increase in overall participation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <h2>Skills and awards</h2>
+
+      <div class="skills">
+        <div>
+          <h3>Product</h3>
+          <ul>
+            <li>User research and surveys</li>
+            <li>RICE prioritization</li>
+            <li>KPI design</li>
+            <li>A/B test planning</li>
+            <li>Go-to-market</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Data and analytics</h3>
+          <ul>
+            <li>MySQL</li>
+            <li>Python</li>
+            <li>NumPy</li>
+            <li>Pandas</li>
+            <li>Matplotlib</li>
+            <li>Seaborn</li>
+            <li>Power BI (basic)</li>
+            <li>MS Excel (basic)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Build and design</h3>
+          <ul>
+            <li>MCP connectors</li>
+            <li>RAG pipelines</li>
+            <li>C++</li>
+            <li>Figma (basic)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="learning"><strong>Courses:</strong> Product Matters by E-Cell Club, and Summer Analytics by Consulting &amp; Analytics Club.</p>
+
+      <h3 class="awards-title">Competitions and awards</h3>
+      <ul class="awards">
+        <li><span class="yr">2026</span><span><b>TATA Crucible Quiz.</b> 2nd place at the Zonal Finals, top 16 of 1 million+ participants.</span></li>
+        <li><span class="yr">2026</span><span><b>Flipkart Grid 8.0.</b> Semi-finalist among 1.5M+ participants.</span></li>
+        <li><span class="yr">2026</span><span><b>ICONIQ Quizverse Challenge.</b> 3rd at the Zonal Round, run by the Shiv Nadar Foundation.</span></li>
+        <li><span class="yr">2025</span><span><b>HackOn with Amazon 5.0.</b> Reached Round 2, top 10% of 1,800+ teams.</span></li>
+        <li><span class="yr">2025</span><span><b>National Financial Literacy Quiz.</b> National finalist among 2.5 lakh+ participants.</span></li>
+        <li><span class="yr">2024</span><span><b>Inter IIT Cultural Meet.</b> Gold, 1st among all 23 IITs in online filmmaking.</span></li>
+        <li><span class="yr">2024</span><span><b>RBI Quiz.</b> Top 8% (top 90 of 1,200+ teams), represented IIT Guwahati at the State Finals.</span></li>
+        <li><span class="yr">2020</span><span><b>PCRA Quiz.</b> 1st in the South Zone and National finalist.</span></li>
+        <li><span class="yr">2018</span><span><b>Wild Wisdom Quiz.</b> International finalist, top 12 worldwide of 70K+ participants.</span></li>
+      </ul>
+
+      <div class="edu">
+        <h3>Education</h3>
+        <p><strong>B.Tech, Energy Engineering</strong>, Indian Institute of Technology, Guwahati. CGPA 7.42, 2023 to present.</p>
+        <p>Senior Secondary, Telangana State Board of Intermediate Education: 98.7%, 2022.</p>
+        <p>Secondary, Board of Secondary Education, Telangana: 95%, 2020.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap">
+      <h2>Let's talk about a product role</h2>
+      <p>I'm looking for product management opportunities. Send me a note and I'll reply.</p>
+      <a class="mail" href="mailto:pasupuletisai29@gmail.com">pasupuletisai29@gmail.com</a>
+      <div class="other">
+        <a href="mailto:m.pasupuleti@iitg.ac.in">m.pasupuleti@iitg.ac.in</a>
+        <a data-link="linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn</a>
+        <a data-link="github" href="#" target="_blank" rel="noopener" hidden>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Pasupuleti Sai Manikanta, IIT Guwahati</div>
+</footer>
+
+<script>
+  // Add your profile URLs here. Empty entries stay hidden.
+  var LINKS = {
+    linkedin: "",
+    github: ""
+  };
+  document.querySelectorAll("[data-link]").forEach(function (el) {
+    var url = LINKS[el.getAttribute("data-link")];
+    if (url) { el.setAttribute("href", url); el.hidden = false; }
+  });
+</script>
+</body>
+</html>
